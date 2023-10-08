@@ -15,6 +15,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+
+			getSingleCharacter: (idDelPersonaje) => {
+				console.log("ID DESDE EL FLUX", idDelPersonaje)
+				fetch("https://rickandmortyapi.com/api/character/" + idDelPersonaje)
+				.then((response) => response.json())
+				.then((data) => console.log(data))
+			},
+
+
+
+
+
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
