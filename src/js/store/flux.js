@@ -12,15 +12,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			characters: []
 		},
 		actions: {
 
+			getCharacter: async () => {
+				const store = getStore()
+				const response = await fetch("https://rickandmortyapi.com/api/character")
+				const body = await response.json()
+				console.log("Respuesta de la solicitud desde el flux", body)
+				// setCharacters(body.results)
+
+				setStore({ characters: body.results })
+			},
+
+
 			getSingleCharacter: (idDelPersonaje) => {
-				console.log("ID DESDE EL FLUX", idDelPersonaje)
-				fetch("https://rickandmortyapi.com/api/character/" + idDelPersonaje)
-				.then((response) => response.json())
-				.then((data) => console.log(data))
+				// console.log("ID DESDE EL FLUX", idDelPersonaje)
+				// fetch("https://rickandmortyapi.com/api/character/" + idDelPersonaje)
+				// .then((response) => response.json())
+				// .then((data) => console.log(data))
 			},
 
 
