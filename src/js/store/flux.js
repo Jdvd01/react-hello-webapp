@@ -28,12 +28,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 
-			//getSingleCharacter: (idDelPersonaje) => {
-			// console.log("ID DESDE EL FLUX", idDelPersonaje)
-			// fetch("https://rickandmortyapi.com/api/character/" + idDelPersonaje)
-			// .then((response) => response.json())
-			// .then((data) => console.log(data))
-			//},
+			getSingleCharacter: (idDelPersonaje) => {
+				console.log("ID DESDE EL FLUX", idDelPersonaje)
+				fetch("https://rickandmortyapi.com/api/character/" + idDelPersonaje)
+					.then((response) => response.json())
+					.then((data) => console.log(data))
+			},
 
 
 
